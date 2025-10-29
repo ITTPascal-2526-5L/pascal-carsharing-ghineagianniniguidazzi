@@ -1,6 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <body>
-        <h1>Mi piaciono le pizze</h1>
-    </body>
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+</head>
+<body>
+  <h1>Accesso</h1>
+
+  <form method="post">
+    <label>Email:
+      <input type="text" name="email" required>
+    </label><br><br>
+
+    <label>Telefono:
+      <input type="tel" name="telefono" maxlength="12" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required>
+    </label><br><br>
+
+    <label>Password:
+      <input type="password" name="password" required>
+    </label><br><br>
+
+    <button type="submit">Accedi</button>
+  </form>
+</body>
 </html>
