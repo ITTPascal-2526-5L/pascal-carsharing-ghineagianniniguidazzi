@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrazione Passeggero</title>
+</head>
+<body>
+  <h1>Registrazione Passeggero</h1>
+  <form action="/register-passenger" method="post">
+    <label>Nome: <input type="text" name="nome" required></label><br>
+    <label>Cognome: <input type="text" name="cognome" required></label><br>
+    <label>Età: <input type="number" name="eta" min="6" required></label><br>
+    <label>Scuola: <input type="text" name="scuola" required></label><br>
+    <label>Telefono: <input type="tel" name="telefono" required></label><br>
+    <label>Email: <input type="email" name="email" required></label><br>
+    <label>Password: <input type="password" name="password" required></label><br>
+    <label>Hai una disabilità?
+      <select name="disabilita">
+        <option value="no">No</option>
+        <option value="si">Sì</option>
+      </select>
+    </label><br>
+    <button type="submit">Registrati</button>
+  </form>
+</body>
+</html>
