@@ -3,7 +3,7 @@ from flask import Flask
 # Crea un istanza della classe Flask
 app = Flask(__name__) 
 
-# Route sono gli indirizzi(percorsi) a cui si può acccedere ('/') sta per la root principale, la primaria
+# Route sono gli indirizzi(percorsi) a cui si può accedere ('/') sta per la root principale, la primaria
 @app.route('/')
 
 # Le funzioni in python si fanno usando il 'def' al posto di 'function'

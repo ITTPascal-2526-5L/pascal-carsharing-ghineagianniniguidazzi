@@ -1,26 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <title>Login</title>
+  <meta charset="UTF-8">
+  <title>Accesso Utente</title>
 </head>
 <body>
-  <h1>Accesso</h1>
-
-  <form method="post">
-    <label>Email:
-      <input type="text" name="email" required>
-    </label><br><br>
-
-    <label>Telefono:
-      <input type="tel" name="telefono" maxlength="12" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required>
-    </label><br><br>
-
-    <label>Password:
-      <input type="password" name="password" required>
-    </label><br><br>
-
-    <button type="submit">Accedi</button>
+  <h1>Benvenuto! Seleziona il tipo di utente</h1>
+  <form action="">
+    <button formaction="driver.html">Driver</button>
+    <button formaction="passenger.html">Passenger</button>
+    <button formaction="school.html">School</button>
   </form>
 </body>
 </html>
