@@ -1,4 +1,4 @@
-# Questo file serve solo per lanciare ò'istanza.
+# Questo file serve solo per lanciare l'istanza.
 # L'istanza e le sue dipendenze (librerie) sono state settate all'interno del file __init__
 from .app import create_app
 

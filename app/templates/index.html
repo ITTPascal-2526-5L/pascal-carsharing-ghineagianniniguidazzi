@@ -2,14 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/css/style.css">
   <title>Accesso Utente</title>
 </head>
 <body>
   <h1>Benvenuto! Seleziona il tipo di utente</h1>
-  <form action="">
-    <button formaction="driver.html">Driver</button>
-    <button formaction="passenger.html">Passenger</button>
-    <button formaction="school.html">School</button>
-  </form>
+
+  <a href="{{ url_for('registration.registration_driver') }}">Driver</a>
+  <a href="{{ url_for('registration.registration_pssenger') }}">Passenger</a>
+
+
 </body>
 </html>
