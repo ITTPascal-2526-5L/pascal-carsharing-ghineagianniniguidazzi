@@ -6,7 +6,7 @@ registration_bp = Blueprint("registration", __name__)
 @registration_bp.route("/registration_driver", request=['GET','POST'])
 def registration_driver():
     # Prendete in input
-
+    
     # request.get()
 
     # Salvataggio dei dati con json
