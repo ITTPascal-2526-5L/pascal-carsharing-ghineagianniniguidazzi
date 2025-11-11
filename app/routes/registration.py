@@ -19,5 +19,5 @@ def registration_passenger():
     return render_template("passenger.html")
 
 @registration_bp.route("/registration_school", request=['GET','POST'])
-def registration_passenger():
+def registration_school():
     return render_template("school.html")
