@@ -3,4 +3,4 @@ venv\Scripts\activate
 flask run 
 
 SE NON SONO INSTALLATE LE ESTENSIONI
-pip instal -r requirements.txt
+pip install -r requirements.txt

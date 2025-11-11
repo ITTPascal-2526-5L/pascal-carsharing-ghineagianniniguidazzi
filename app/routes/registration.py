@@ -1,23 +1,30 @@
-from flask import Blueprint, render_template,redirect
+from flask import Blueprint, request, render_template, jsonify
 import json
 
-registration_bp = Blueprint("registration", __name__)
+registration_bp = Blueprint('registration_bp', __name__)
 
-@registration_bp.route("/registration_driver", request=['GET','POST'])
+@registration_bp.route("/registration_driver", methods=['GET', 'POST'])
 def registration_driver():
-    # Prendete in input
-    
-    # request.get()
+    if request.method == 'POST':
+        driver_data = {
+            'nome': request.form.get('nome'),
+            'cognome': request.form.get('cognome'),
+            'patente': request.form.get('patente'),
+            'password': request.form.get('password'),
+            'telefono': request.form.get('telefono'),
+            'eta': request.form.get('eta'),
+            'email': request.form.get('email')
+        }
 
-    # Salvataggio dei dati con json
-    # json.dumps(...)
+        # Percorso relativo alla cartella 'data'
+        folder_path = 'app/json/'
+        file_name = f"{driver_data['license_number']}.json"
+        file_path = folder_path + file_name
+
+        # Scrittura del file JSON
+        with open(file_path, 'w') as json_file:
+            json.dump(driver_data, json_file, indent=4)
+
+        return jsonify({"message": "Dati salvati correttamente", "file": file_path})
 
     return render_template("driver.html")
-
-@registration_bp.route("/registration_passenger", request=['GET','POST'])
-def registration_passenger():
-    return render_template("passenger.html")
-
-@registration_bp.route("/registration_school", request=['GET','POST'])
-def registration_school():
-    return render_template("school.html")
