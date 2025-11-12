@@ -1,10 +1,12 @@
-from flask import Blueprint, request, render_template, jsonify
+from flask import Blueprint,request, render_template, jsonify
 import json
 
 registration_bp = Blueprint('registration_bp', __name__)
 
 @registration_bp.route("/registration_driver", methods=['GET', 'POST'])
 def registration_driver():
+
+
     if request.method == 'POST':
         driver_data = {
             'nome': request.form.get('nome'),
@@ -28,3 +30,11 @@ def registration_driver():
         return jsonify({"message": "Dati salvati correttamente", "file": file_path})
 
     return render_template("driver.html")
+
+@registration_bp.route("/registration_passenger",  methods=['GET', 'POST'])
+def registration_passenger():
+    return render_template("passenger.html")
+
+@registration_bp.route("/registration_school",  methods=['GET', 'POST'])
+def registration_school():
+    return render_template("school.html")

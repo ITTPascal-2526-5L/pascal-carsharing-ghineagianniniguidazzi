@@ -5,28 +5,7 @@
   <title>Accesso Utente</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="static/css/style.css">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .card-link {
-      text-align: center;
-      padding: 2rem;
-      border-radius: 0.5rem;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease;
-    }
-    .card-link:hover {
-      transform: scale(1.05);
-    }
-    .card-link a {
-      text-decoration: none;
-      color: #0d6efd;
-      font-size: 1.25rem;
-      font-weight: 500;
-    }
-  </style>
+
 </head>
 <body>
   <div class="container py-5">
@@ -34,17 +13,17 @@
     <div class="row justify-content-center g-4">
       <div class="col-md-4">
         <div class="card-link">
-          <a href="{{ url_for('registration.registration_driver') }}">🚗 Driver</a>
+          <a href="{{ url_for('registration_bp.registration_driver') }}"> Driver</a>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card-link">
-          <a href="{{ url_for('registration.registration_passenger') }}">🧍 Passenger</a>
+          <a href="{{ url_for('registration_bp.registration_passenger') }}"> Passenger</a>
         </div>
       </div>
       <div class="col-md-4">
         <div class="card-link">
-          <a href="{{ url_for('registration.registration_school') }}">🏫 School</a>
+          <a href="{{ url_for('registration_bp.registration_school') }}"> School</a>
         </div>
       </div>
     </div>
