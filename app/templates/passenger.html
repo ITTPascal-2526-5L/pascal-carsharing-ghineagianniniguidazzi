@@ -10,7 +10,8 @@
     <label>Nome: <input type="text" name="nome" required></label><br>
     <label>Cognome: <input type="text" name="cognome" required></label><br>
     <label>Età: <input type="number" name="eta" min="6" required></label><br>
-    <label>Scuola: <input type="text" name="scuola" required></label><br>
+    <label>Scuola: <select name="scuola" id="SelectNomi" ></select>
+    <option value="">-- Seleziona un nome --</option></label><br>
     <label>Telefono: <input type="tel" name="telefono" required></label><br>
     <label>Email: <input type="email" name="email" required></label><br>
     <label>Password: <input type="password" name="password" required></label><br>
@@ -23,4 +24,5 @@
     <button type="submit">Registrati</button>
   </form>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>
