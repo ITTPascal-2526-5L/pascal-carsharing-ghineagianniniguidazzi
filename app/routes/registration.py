@@ -20,7 +20,7 @@ def registration_driver():
 
         # Percorso relativo alla cartella 'data'
         folder_path = 'app/json/'
-        file_name = f"{driver_data['license_number']}.json"
+        file_name = f"driver.json"
         file_path = folder_path + file_name
 
         # Scrittura del file JSON
