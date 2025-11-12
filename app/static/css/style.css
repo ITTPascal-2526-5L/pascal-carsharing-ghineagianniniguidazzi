@@ -1,12 +1,14 @@
 h1{
-    color: aqua;
+    text-decoration: none;
+      color: #000000;
+      font-size: 100;
+      font-weight: 500;
+      font-style: italic;
+      font-weight: bold;
     text-align: center;
 }
-button{
-    margin: 100px
-}
 body {
-      background-color: #f8f9fa;
+      background-color:blanchedalmond;
     }
     .card-link {
       text-align: center;
@@ -21,7 +23,17 @@ body {
     }
     .card-link a {
       text-decoration: none;
-      color: #0d6efd;
-      font-size: 1.25rem;
+      color: #000000;
+      font-size: 3rem;
       font-weight: 500;
+      font-style: italic;
+      font-weight: bold;
     }
+
+form{
+  text-align: center;
+}
+
+label{
+  font-weight: bold;
+}
