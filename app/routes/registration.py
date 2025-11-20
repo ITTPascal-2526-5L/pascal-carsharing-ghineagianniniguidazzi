@@ -22,9 +22,23 @@ def registration_driver():
         file_name = f"driver.json"
         file_path = folder_path + file_name
 
-        # Scrittura del file JSON
-        with open(file_path, 'a+') as json_file:
-            json.dump(driver_data, json_file, indent=4)
+        # # Scrittura del file JSON
+        # with open(file_path, 'a+') as json_file:
+        #     json.dump(driver_data, json_file, indent=4)
+
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                dati = json.load(f)  # è una lista
+        except FileNotFoundError:
+            dati = []  # se non esiste, parto da una lista vuota
+        # 2) Aggiungo un nuovo set di dati
+        dati.append(driver_data)
+
+        # 3) Riscrivo il JSON correttamente indentato
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(dati, f, indent=4, ensure_ascii=False)
+
+        
 
         return jsonify({"message": "Dati salvati correttamente", "file": file_path})
 
@@ -50,9 +64,23 @@ def registration_passenger():
         file_name = f"passenger.json"
         file_path = folder_path + file_name
 
-        # Scrittura del file JSON
-        with open(file_path, 'a+') as json_file:
-            json.dump(passenger_data, json_file, indent=4)
+        # # Scrittura del file JSON
+        # with open(file_path, 'a+') as json_file:
+        #     json.dump(passenger_data, json_file, indent=4)
+
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                dati = json.load(f)  # è una lista
+        except FileNotFoundError:
+            dati = []  # se non esiste, parto da una lista vuota
+
+        # 2) Aggiungo un nuovo set di dati
+        dati.append(passenger_data)
+
+        # 3) Riscrivo il JSON correttamente indentato
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(dati, f, indent=4, ensure_ascii=False)
+
 
         return jsonify({"message": "Dati salvati correttamente", "file": file_path})
     return render_template("passenger.html")
@@ -72,9 +100,24 @@ def registration_school():
         file_name = f"school.json"
         file_path = folder_path + file_name
 
-        # Scrittura del file JSON
-        with open(file_path, 'a+') as json_file:
-            json.dump(school_data, json_file, indent=4)
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                dati = json.load(f)  # è una lista
+        except FileNotFoundError:
+            dati = []  # se non esiste, parto da una lista vuota
+
+        # 2) Aggiungo un nuovo set di dati
+        dati.append(school_data)
+
+        # 3) Riscrivo il JSON correttamente indentato
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(dati, f, indent=4, ensure_ascii=False)
+
+
+
+    #     # Scrittura del file JSON
+    #     with open(file_path, 'a+') as json_file:
+    #         json.dump(school_data, json_file, indent=4)
 
         return jsonify({"message": "Dati salvati correttamente", "file": file_path})
     return render_template("school.html")

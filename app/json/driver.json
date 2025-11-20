@@ -1,9 +1,11 @@
-{
-    "nome": "Federica",
-    "cognome": "miao",
-    "patente": "215346",
-    "password": "76",
-    "telefono": "2132132154",
-    "eta": "18",
-    "email": "mattia.guidazzi.stud@ispascalcomandini.it"
-}
+[
+    {
+        "nome": "Federica",
+        "cognome": "miao",
+        "patente": "215346",
+        "password": "76",
+        "telefono": "2132132154",
+        "eta": "18",
+        "email": "mattia.guidazzi.stud@ispascalcomandini.it"
+    }
+]

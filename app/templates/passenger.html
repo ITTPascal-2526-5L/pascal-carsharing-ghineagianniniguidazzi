@@ -6,12 +6,12 @@
 </head>
 <body>
   <h1>Registrazione Passeggero</h1>
-  <form action="registration_bp.registration_passenger" method="post">
+  <form action="/registration_passenger" method="post">
     <label>Nome: <input type="text" name="nome" required></label><br>
     <label>Cognome: <input type="text" name="cognome" required></label><br>
     <label>Età: <input type="number" name="eta" min="6" required></label><br>
-    <label>Scuola: <select name="scuola" id="SelectNomi" ></select>
-    <option value="">-- Seleziona un nome --</option></label><br>
+    <label>Scuola: <select name="scuola" id="SelectNomi" ><option value="">-- Seleziona un nome --</option></select>
+    </label><br>
     <label>Telefono: <input type="tel" name="telefono" required></label><br>
     <label>Email: <input type="email" name="email" required></label><br>
     <label>Password: <input type="password" name="password" required></label><br>
@@ -25,4 +25,5 @@
   </form>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/passenger.js') }}"></script>
 </html>
