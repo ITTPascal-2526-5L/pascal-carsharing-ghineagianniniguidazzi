@@ -6,8 +6,9 @@
 </head>
 <body>
   <h1>Registrazione Driver</h1>
-  <form action="/registration_driver" method="post">
+  <form action="/registration_driver" method="post" enctype="multipart/form-data">
     <label>Numero Patente: <input type="text" name="patente" required></label><br>
+     <label>Documento Patente (PDF/JPG/PNG): <input type="file" name="patente_file" accept=".pdf,.jpg,.jpeg,.png" required></label><br>
     <label>Nome: <input type="text" name="nome" required></label><br>
     <label>Cognome: <input type="text" name="cognome" required></label><br>
     <label>Email: <input type="email" name="email" required></label><br>
