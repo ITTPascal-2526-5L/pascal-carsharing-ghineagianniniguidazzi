@@ -14,7 +14,8 @@ def registration_driver():
             'password': request.form.get('password'),
             'telefono': request.form.get('telefono'),
             'eta': request.form.get('eta'),
-            'email': request.form.get('email')
+            'email': request.form.get('email'),
+            '€/km': request.form.get('€/km')
         }
 
         # Percorso relativo alla cartella 'data'
@@ -40,7 +41,7 @@ def registration_driver():
 
         
 
-        return jsonify({"message": "Dati salvati correttamente", "file": file_path})
+        return render_template("BRAVO.html")
 
     return render_template("driver.html")
 
@@ -82,7 +83,7 @@ def registration_passenger():
             json.dump(dati, f, indent=4, ensure_ascii=False)
 
 
-        return jsonify({"message": "Dati salvati correttamente", "file": file_path})
+        return render_template("BRAVO.html")
     return render_template("passenger.html")
 
 @registration_bp.route("/registration_school",  methods=['GET', 'POST'])
@@ -91,8 +92,9 @@ def registration_school():
         school_data = {
             'nome': request.form.get('nome'),
             'id': request.form.get('id'),
-            'telefono': request.form.get('telefono'),
-            'email': request.form.get('email')
+            'indirizzo': request.form.get('indirizzo'),
+            'email': request.form.get('email'),
+            'telefono': request.form.get('telefono')
         }
 
         # Percorso relativo alla cartella 'data'
@@ -119,5 +121,5 @@ def registration_school():
     #     with open(file_path, 'a+') as json_file:
     #         json.dump(school_data, json_file, indent=4)
 
-        return jsonify({"message": "Dati salvati correttamente", "file": file_path})
+        return render_template("BRAVO.html")
     return render_template("school.html")

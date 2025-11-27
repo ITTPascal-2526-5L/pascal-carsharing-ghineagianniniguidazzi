@@ -1,26 +1,9 @@
 [
     {
-        "nome": "Federica Brandini",
-        "id": "bh65s",
-        "telefono": null,
-        "email": "asjhdbaskjsdnkns@gmail.com"
-    },
-    {
         "nome": "Aldo moro",
-        "id": "am67s",
-        "telefono": null,
-        "email": "Sigma@gmail.com"
-    },
-    {
-        "nome": "Licojannis",
         "id": "sdas212",
-        "telefono": null,
-        "email": "31354564"
-    },
-    {
-        "nome": "San Marino",
-        "id": "sdbjsa245132",
-        "telefono": null,
-        "email": "56584864789"
+        "indirizzo": "V. Moro 32",
+        "email": "Sigma@gmail.com",
+        "telefono": "3333333333"
     }
 ]
