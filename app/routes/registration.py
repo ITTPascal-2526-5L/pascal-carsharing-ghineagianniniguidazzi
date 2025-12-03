@@ -15,7 +15,7 @@ def registration_driver():
             'telefono': request.form.get('telefono'),
             'eta': request.form.get('eta'),
             'email': request.form.get('email'),
-            '€/km': request.form.get('€/km')
+            '€/km': request.form.get('prezzo')
         }
 
         # Percorso relativo alla cartella 'data'
