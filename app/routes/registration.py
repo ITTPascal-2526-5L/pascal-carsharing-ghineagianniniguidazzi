@@ -1,4 +1,4 @@
-from flask import Blueprint,request, render_template, jsonify
+from flask import Blueprint,request, render_template
 import json
 
 registration_bp = Blueprint('registration_bp', __name__)

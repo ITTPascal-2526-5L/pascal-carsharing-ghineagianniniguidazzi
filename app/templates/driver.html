@@ -2,23 +2,33 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrazione Driver</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-  <h1>Registrazione Driver</h1>
-  <form action="/registration_driver" method="post" enctype="multipart/form-data">
-    <label>Numero Patente: <input type="text" name="patente" required></label><br>
-    <label>Documento Patente (PDF/JPG/PNG): <input type="file" name="patente_file" accept=".pdf,.jpg,.jpeg,.png" required></label><br>
-    <label>Nome: <input type="text" name="nome" required></label><br>
-    <label>Cognome: <input type="text" name="cognome" required></label><br>
-    <label>Email: <input type="email" name="email" required></label><br>
-    <label>Password: <input type="password" name="password" required></label><br>
-    <label>Età: <input type="number" name="eta" min="18" required></label><br>
-    <label>Telefono: <input type="tel" name="telefono" required></label><br>
-    <label>Prezzo/km: <input type="number" name="prezzo" required></label><br>
-    <button type="submit">Registrati</button>
-  </form>
+  <div class="main-center-wrapper">
+    <div class="login-container">
+      <div class="login-header">
+        <h1>Registrazione Driver</h1>
+        <p>Compila il modulo per registrarti come driver</p>
+      </div>
+      <form action="/registration_driver" method="post" enctype="multipart/form-data" id="driverForm">
+        <div class="form-group"><label>Numero Patente: <input type="text" name="patente" required></label></div>
+        <div class="form-group"><label>Foto/Documento Patente (PDF/JPG/PNG): <input type="file" name="patente_file" accept=".pdf,.jpg,.jpeg,.png" required class="form-group"></label></div>
+        <div class="form-group"><label>Nome: <input type="text" name="nome" required></label></div>
+        <div class="form-group"><label>Cognome: <input type="text" name="cognome" required></label></div>
+        <div class="form-group"><label>Email: <input type="email" name="email" required></label></div>
+        <div class="form-group"><label>Password: <input type="password" name="password" required></label></div>
+        <div class="form-group"><label>Età: <input type="number" name="eta" min="18" required></label></div>
+        <div class="form-group"><label>Telefono: <input type="tel" name="telefono" required></label></div>
+        <div class="form-group"><label>Prezzo/km: <input type="number" name="prezzo" required></label></div>
+        <button type="submit" class="login-btn accedi-btn-evidenziato">Registrati</button>
+      </form>
+      <div class="cookie-info">
+        Questo sito utilizza cookie per salvare le tue preferenze di accesso.
+      </div>
+    </div>
+  </div>
 </body>
 </html>

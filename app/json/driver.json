@@ -16,5 +16,15 @@
         "telefono": "213 213 2154",
         "eta": "65",
         "email": "Sigma@gmail.com"
+    },
+    {
+        "nome": "Aldo moro",
+        "cognome": "Gualtieri",
+        "patente": "123456789",
+        "password": "Gualtieri",
+        "telefono": "2132132154",
+        "eta": "78",
+        "email": "luca@luca.com",
+        "€/km": "45"
     }
 ]
