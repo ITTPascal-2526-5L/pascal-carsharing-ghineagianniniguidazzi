@@ -11,12 +11,12 @@ def login():
         password = request.form.get('password', '')
         remember = request.form.get('remember') == 'on'
 
-        # Basic validation
+        # Validazione di base
         if not username or not password:
             flash('Per favore, compila tutti i campi.', 'error')
             return redirect(url_for('login_bp.login'))
 
-        # Load users from JSON
+        # Carica utenti da JSON
         json_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'json', 'driver.json')
         try:
             with open(json_path, 'r', encoding='utf-8') as f:
@@ -25,7 +25,7 @@ def login():
             flash('Errore interno: impossibile leggere i dati degli utenti.', 'error')
             return redirect(url_for('login_bp.login'))
 
-        # Search user by username or email
+        # Cerca utente per nome utente o email
         user = None
         for u in users:
             if u.get('email') == username or u.get('nome') == username:
@@ -33,7 +33,7 @@ def login():
                 break
 
         if user and user.get('password') == password:
-            # Login success
+            # Accesso riuscito
             session['user'] = {'nome': user.get('nome'), 'email': user.get('email')}
             session.permanent = remember
             flash('Accesso effettuato con successo!', 'success')
