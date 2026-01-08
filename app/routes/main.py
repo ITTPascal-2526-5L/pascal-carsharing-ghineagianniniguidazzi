@@ -13,8 +13,8 @@ def homepage():
     # Use globals() to avoid NameError if username is not defined elsewhere
     username = globals().get('username')
     if username:
-        return render_template("index.html", username=username)
-    return render_template("index.html")
+        return render_template("home.html", username=username)
+    return render_template("home.html")
 
 
 @main_bp.route('/registrations')
