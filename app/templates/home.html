@@ -5,31 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home — CarSharing</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <style>
-      /* Piccolo styling locale per il hero */
-      .hero {
-        background: linear-gradient(90deg, rgba(0,123,255,0.85), rgba(0,180,150,0.85));
-        color: white;
-        padding: 80px 20px;
-        text-align: center;
-      }
-      .hero h1 { font-size: 2.4rem; margin-bottom: 0.5rem; }
-      .hero p { font-size: 1.05rem; margin-bottom: 1.2rem; }
-      .search-box { max-width: 760px; margin: 0 auto; display: flex; gap: 8px; }
-      .search-box input, .search-box select { padding: 12px; flex:1; border-radius:6px; border: none; }
-      .btn-primary { background:#000; color:#fff; padding:12px 18px; border-radius:6px; border:none; cursor:pointer; }
-      .features { padding:40px 20px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
-      .feature { width:260px; padding:18px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.08); text-align:left; }
-      footer { padding:18px 20px; text-align:center; color:#666; }
-      @media (max-width:600px){ .hero h1{font-size:1.6rem} .search-box{flex-direction:column} }
-    </style>
+    
   </head>
   <body>
     <header style="padding:12px 20px; display:flex; align-items:center; justify-content:space-between;">
-      <a href="{{ url_for('main.index') if 'main' in globals() else url_for('index') }}" style="text-decoration:none; color:inherit; font-weight:700;">CarSharing</a>
+      <a href="{{ url_for('main.homepage') }}" style="text-decoration:none; color:inherit; font-weight:700;">CarSharing</a>
       <nav>
-        <a href="{{ url_for('routes.login') if False else url_for('login') }}" style="margin-right:12px;">Accedi</a>
-        <a href="{{ url_for('registration.register') if False else url_for('registration') }}">Registrati</a>
+        <a href="#" style="margin-right:12px;">Accedi</a>
+        <a href="#">Registrati</a>
       </nav>
     </header>
 
@@ -71,7 +54,7 @@
     </section>
 
     <footer>
-      <small>© {{ current_year if 'current_year' in globals() else '2026' }} CarSharing — Creato come demo ispirata a Uber</small>
+      <small>© 2026 CarSharing — Creato come demo ispirata a Uber</small>
     </footer>
   </body>
 </html>
