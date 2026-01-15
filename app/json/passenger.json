@@ -2,11 +2,21 @@
     {
         "nome": "Federica",
         "cognome": "Gualtieri",
-        "scuola": "",
+        "scuola": null,
         "password": "74",
         "telefono": "3333333333",
         "eta": "74",
         "email": "asjhdbaskjsdnkns@gmail.com",
         "disabilita": "si"
+    },
+    {
+        "nome": "Jacopo",
+        "cognome": "Giannini",
+        "scuola": "Aldo moro",
+        "password": "CrimsonPlanet14_",
+        "telefono": "3806465774",
+        "eta": "34",
+        "email": "jacopo.giannini.stud@ispascalcomandini.it",
+        "disabilita": "no"
     }
 ]
