@@ -5,27 +5,58 @@
     font-family: 'Segoe UI', Arial, sans-serif;
 }
 
+:root {
+    --primary-gradient: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --text-color: #2d3748;
+    --text-muted: #718096;
+    --white: #ffffff;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+}
+
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: var(--bg-gradient);
     min-height: 100vh;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+/* Generalized Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
 }
 
 .main-center-wrapper {
     width: 100%;
-    min-height: 100vh;
+    flex: 1;
+    /* Pushes footer down */
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px var(--spacing-md);
 }
 
+/* Auth Pages (Login / Register) */
 .login-container {
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
     width: 100%;
-    max-width: 600px;
-    padding: 48px 48px 32px 48px;
+    max-width: 500px;
+    /* Reduced specific width for better focus */
+    padding: 40px;
     margin: 0 auto;
 }
 
@@ -36,13 +67,14 @@ body {
 
 .login-header h1 {
     color: #222;
-    font-size: 28px;
+    font-size: 26px;
+    /* Slightly adjusted */
     margin-bottom: 8px;
 }
 
 .login-header p {
     color: #444;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .form-group {
@@ -56,54 +88,27 @@ body {
     font-weight: 500;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
     width: 100%;
-    padding: 14px;
+    padding: 12px 14px;
     border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: var(--radius-md);
+    font-size: 15px;
     transition: border-color 0.3s;
+    background-color: #fff;
+    /* Ensure white background */
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group select:focus {
     outline: none;
     border-color: #667eea;
 }
 
-.form-group select {
-    width: 100%;
-    padding: 14px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    color: #333;
-    transition: border-color 0.3s;
-    appearance: none;
-    outline: none;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.07);
-}
-
-.form-group select:focus {
-    border-color: #ff512f;
-}
-
 .form-group input[type="file"] {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
     background: #f5f7fa;
-    font-size: 16px;
-    color: #333;
-    margin-top: 8px;
     cursor: pointer;
-    transition: border-color 0.3s;
-}
-
-.form-group input[type="file"]:focus {
-    border-color: #ff512f;
 }
 
 .remember-me {
@@ -117,46 +122,56 @@ body {
     width: auto;
 }
 
-.login-btn {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
-    color: #fff;
-    border: 2px solid #ff512f;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(221, 36, 118, 0.15);
-    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    letter-spacing: 1px;
-    text-align: center;
-    display: flex;
+/* Buttons */
+.login-btn,
+.btn-primary {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    /* Default full width for login forms */
+    padding: 14px 20px;
+    background: var(--primary-gradient);
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(221, 36, 118, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    letter-spacing: 0.5px;
 }
 
-.login-btn:hover {
-    background: linear-gradient(135deg, #dd2476 0%, #ff512f 100%);
-    box-shadow: 0 10px 30px rgba(221, 36, 118, 0.25);
-    transform: scale(1.04);
+.btn-primary {
+    width: auto;
+    /* Auto width for general buttons */
 }
 
-.login-btn:active {
-    background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
-    transform: scale(1.0);
+.login-btn:hover,
+.btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(221, 36, 118, 0.3);
+    transform: translateY(-2px);
+    color: var(--white);
+}
+
+.login-btn:active,
+.btn-primary:active {
+    transform: translateY(0);
 }
 
 .signup-link {
     text-align: center;
     margin-top: 25px;
     color: #666;
+    font-size: 14px;
 }
 
 .signup-link a {
     color: #667eea;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .signup-link a:hover {
@@ -165,10 +180,11 @@ body {
 
 .message {
     padding: 12px;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     margin-bottom: 20px;
     text-align: center;
     display: none;
+    font-size: 14px;
 }
 
 .message.success {
@@ -186,14 +202,15 @@ body {
 }
 
 .cookie-info {
-    font-size: 12px;
-    color: #888;
+    font-size: 11px;
+    color: #aaa;
     text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 25px;
+    padding-top: 15px;
     border-top: 1px solid #eee;
 }
 
+/* Absolute top right button (Consider moving this to a header in future check) */
 .accedi-top-right {
     position: absolute;
     top: 20px;
@@ -202,62 +219,59 @@ body {
 }
 
 .accedi-btn-evidenziato {
-    background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%) !important;
+    background: var(--primary-gradient) !important;
     color: #fff !important;
-    border: 2px solid #ff512f !important;
-    font-weight: 900 !important;
-    box-shadow: 0 4px 16px rgba(221, 36, 118, 0.25) !important;
-    letter-spacing: 1px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 10px 24px;
+    font-size: 14px;
+    border-radius: 20px;
+    /* Pill shape for top button */
 }
 
 .user-type-links {
     display: flex;
     justify-content: center;
-    gap: 18px;
+    gap: 12px;
     margin-top: 24px;
+    flex-wrap: wrap;
 }
 
-/* --- Home Page Styles --- */
-
-/* Reuse and adapt login button style for primary buttons */
-.btn-primary {
-    display: inline-block;
-    padding: 12px 24px;
-    background: linear-gradient(135deg, #ff512f 0%, #dd2476 100%);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 4px 16px rgba(221, 36, 118, 0.15);
-    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    letter-spacing: 0.5px;
-    text-align: center;
-    text-decoration: none;
+.user-type-links .login-btn {
+    width: auto;
+    min-width: 100px;
+    font-size: 14px;
+    padding: 10px 20px;
 }
 
-.btn-primary:hover {
-    background: linear-gradient(135deg, #dd2476 0%, #ff512f 100%);
-    box-shadow: 0 8px 25px rgba(221, 36, 118, 0.25);
-    transform: translateY(-2px);
-    color: #fff;
-    text-decoration: none;
-}
+
+/* --- Home Page Specifics --- */
 
 /* Header */
 header {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* Ensure flex from inline style works well with this */
+    padding: 16px 0;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 20px;
+    color: #2d3748;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 header nav a {
@@ -276,22 +290,22 @@ header nav a:hover {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 100px 20px 60px;
-    max-width: 900px;
+    padding: 100px 20px 80px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     color: #2d3748;
-    margin-bottom: 24px;
-    line-height: 1.1;
+    margin-bottom: 20px;
+    line-height: 1.2;
     font-weight: 800;
     letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: #718096;
     margin-bottom: 40px;
     line-height: 1.6;
@@ -303,11 +317,11 @@ header nav a:hover {
 /* Search Box */
 .search-box {
     background: white;
-    padding: 15px;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -315,14 +329,15 @@ header nav a:hover {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .search-box input {
     flex: 1;
-    min-width: 220px;
+    min-width: 200px;
     padding: 16px 20px;
-    border: 2px solid #edf2f7;
-    border-radius: 10px;
+    border: 1px solid transparent;
+    border-radius: 12px;
     font-size: 16px;
     outline: none;
     transition: all 0.3s;
@@ -330,80 +345,118 @@ header nav a:hover {
 }
 
 .search-box input:focus {
-    border-color: #dd2476;
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(221, 36, 118, 0.1);
+    box-shadow: inset 0 0 0 2px #dd2476;
 }
 
 .search-box .btn-primary {
     padding: 16px 32px;
     font-size: 16px;
+    border-radius: 12px;
     flex-shrink: 0;
 }
 
 /* Features Section */
-.features {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    padding: 80px 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
+.features-section {
+    padding: 60px 0;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 var(--spacing-md);
 }
 
 .feature {
     background: white;
     padding: 40px 32px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    flex: 1;
-    min-width: 280px;
+    box-shadow: var(--shadow-sm);
     text-align: left;
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.5);
+    height: 100%;
 }
 
 .feature:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-md);
 }
 
 .feature h3 {
     color: #2d3748;
     margin-bottom: 16px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
 }
 
 .feature p {
     color: #718096;
-    line-height: 1.7;
+    line-height: 1.6;
     font-size: 1rem;
+}
+
+/* App Download Section */
+.download-section {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.btn-app-store {
+    background: #1a202c;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-app-store:hover {
+    background: #2d3748;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
     color: #a0aec0;
     margin-top: auto;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     .search-box {
         flex-direction: column;
-        padding: 20px;
+        padding: 16px;
     }
 
     .search-box input,
     .search-box .btn-primary {
+        width: 100%;
+    }
+
+    .user-type-links {
+        flex-direction: column;
+    }
+
+    .user-type-links .login-btn {
         width: 100%;
     }
 }
