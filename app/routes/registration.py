@@ -3,6 +3,10 @@ import json
 
 registration_bp = Blueprint('registration_bp', __name__)
 
+@registration_bp.route("/register")
+def register():
+    return render_template("index.html")
+
 @registration_bp.route("/registration_driver", methods=['GET', 'POST'])
 def registration_driver():
 
