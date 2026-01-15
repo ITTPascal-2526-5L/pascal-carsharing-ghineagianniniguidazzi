@@ -1,60 +1,140 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home — CarSharing</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    
-  </head>
-  <body>
-    <header style="padding:12px 20px; display:flex; align-items:center; justify-content:space-between;">
-      <a href="{{ url_for('main.homepage') }}" style="text-decoration:none; color:inherit; font-weight:700;">CarSharing</a>
-      <nav>
-        <a href="#" style="margin-right:12px;">Accedi</a>
-        <a href="#">Registrati</a>
-      </nav>
-    </header>
 
-    <section class="hero">
-      <h1>Muoviti in città. Condividi il viaggio.</h1>
-      <p>Trova rapidamente autisti e passeggeri per percorsi quotidiani e speciali — semplice, sicuro e conveniente.</p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home — CarSharing</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* Piccolo styling locale per il hero */
+    .hero {
+      background: linear-gradient(90deg, rgba(0, 123, 255, 0.85), rgba(0, 180, 150, 0.85));
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
 
-      <form class="search-box" action="#" method="get">
-        <input type="text" name="from" placeholder="Partenza (es. scuola, via...)" aria-label="Partenza">
-        <input type="text" name="to" placeholder="Destinazione" aria-label="Destinazione">
-        <button class="btn-primary" type="submit">Trova un passaggio</button>
-      </form>
-      <p style="margin-top:12px; font-size:0.9rem; opacity:0.95;">Disponibile per studenti e cittadini — crea o cerca corse in pochi secondi.</p>
-      <p style="margin-top:14px;"><a href="{{ url_for('main.registrations') }}" class="btn-primary" style="text-decoration:none;">Visualizza dati registrati</a></p>
-    </section>
+    .hero h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
 
-    <section class="features">
-      <div class="feature">
-        <h3>Sicuro e verificato</h3>
-        <p>Controlliamo i profili e forniamo informazioni chiare prima di ogni viaggio.</p>
-      </div>
-      <div class="feature">
-        <h3>Risparmia tempo e denaro</h3>
-        <p>Condividere il viaggio riduce i costi e l'impatto ambientale.</p>
-      </div>
-      <div class="feature">
-        <h3>Facile da usare</h3>
-        <p>Crea una corsa o cerca una disponibilità in pochi click dal tuo browser.</p>
-      </div>
-    </section>
+    .hero p {
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
 
-    <section style="padding:30px 20px; text-align:center; background:#f9f9f9;">
-      <h2>Scarica l'app (mock)</h2>
-      <p>Per test locale, usa questa interfaccia web. In una vera app mobile aggiungi i pulsanti store qui.</p>
-      <div style="display:flex; gap:12px; justify-content:center; margin-top:12px;">
-        <button class="btn-primary" style="background:#111">Scarica per iOS</button>
-        <button class="btn-primary" style="background:#222">Scarica per Android</button>
-      </div>
-    </section>
+    .search-box {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+    }
 
-    <footer>
-      <small>© 2026 CarSharing — Creato come demo ispirata a Uber</small>
-    </footer>
-  </body>
+    .search-box input,
+    .search-box select {
+      padding: 12px;
+      flex: 1;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .btn-primary {
+      background: #000;
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .features {
+      padding: 40px 20px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      width: 260px;
+      padding: 18px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      text-align: left;
+    }
+
+    footer {
+      padding: 18px 20px;
+      text-align: center;
+      color: #666;
+    }
+
+    @media (max-width:600px) {
+      .hero h1 {
+        font-size: 1.6rem
+      }
+
+      .search-box {
+        flex-direction: column
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header style="padding:12px 20px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="{{ url_for('main.homepage') }}"
+      style="text-decoration:none; color:inherit; font-weight:700;">CarSharing</a>
+    <nav>
+      <a href="{{ url_for('login_bp.login') }}" style="margin-right:12px;">Accedi</a>
+      <a href="{{ url_for('registration_bp.register') }}">Registrati</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Muoviti in città. Condividi il viaggio.</h1>
+    <p>Trova rapidamente autisti e passeggeri per percorsi quotidiani e speciali — semplice, sicuro e conveniente.</p>
+
+    <form class="search-box" action="#" method="get">
+      <input type="text" name="from" placeholder="Partenza (es. scuola, via...)" aria-label="Partenza">
+      <input type="text" name="to" placeholder="Destinazione" aria-label="Destinazione">
+      <button class="btn-primary" type="submit">Trova un passaggio</button>
+    </form>
+    <p style="margin-top:12px; font-size:0.9rem; opacity:0.95;">Disponibile per studenti e cittadini — crea o cerca
+      corse in pochi secondi.</p>
+    <p style="margin-top:14px;"><a href="{{ url_for('main.registrations') }}" class="btn-primary"
+        style="text-decoration:none;">Visualizza dati registrati</a></p>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h3>Sicuro e verificato</h3>
+      <p>Controlliamo i profili e forniamo informazioni chiare prima di ogni viaggio.</p>
+    </div>
+    <div class="feature">
+      <h3>Risparmia tempo e denaro</h3>
+      <p>Condividere il viaggio riduce i costi e l'impatto ambientale.</p>
+    </div>
+    <div class="feature">
+      <h3>Facile da usare</h3>
+      <p>Crea una corsa o cerca una disponibilità in pochi click dal tuo browser.</p>
+    </div>
+  </section>
+
+  <section style="padding:30px 20px; text-align:center; background:#f9f9f9;">
+    <h2>Scarica l'app (mock)</h2>
+    <p>Per test locale, usa questa interfaccia web. In una vera app mobile aggiungi i pulsanti store qui.</p>
+    <div style="display:flex; gap:12px; justify-content:center; margin-top:12px;">
+      <button class="btn-primary" style="background:#111">Scarica per iOS</button>
+      <button class="btn-primary" style="background:#222">Scarica per Android</button>
+    </div>
+  </section>
+
+  <footer>
+    <small>© 2026 CarSharing — Creato come demo ispirata a Uber</small>
+  </footer>
+</body>
+
 </html>
