@@ -3,6 +3,10 @@ import json
 
 registration_bp = Blueprint('registration_bp', __name__)
 
+@registration_bp.route("/register")
+def register():
+    return render_template("index.html")
+
 @registration_bp.route("/registration_driver", methods=['GET', 'POST'])
 def registration_driver():
 
@@ -103,7 +107,10 @@ def registration_passenger():
                 error="Si è verificato un errore inatteso. Riprova più tardi."
             )
 
-    return render_template("passenger.html")
+    else:
+        with open('app/json/school.json', 'r', encoding='utf-8') as f:
+            schools = json.load(f)
+        return render_template("passenger.html", schools=schools)
 
 @registration_bp.route("/registration_school", methods=['GET', 'POST'])
 def registration_school():

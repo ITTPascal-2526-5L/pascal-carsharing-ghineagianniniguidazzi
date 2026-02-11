@@ -6,7 +6,8 @@
         "password": "76",
         "telefono": "2132132154",
         "eta": "18",
-        "email": "mattia.guidazzi.stud@ispascalcomandini.it"
+        "email": "mattia.guidazzi.stud@ispascalcomandini.it",
+        "prezzo": 20
     },
     {
         "nome": "Aldo moro",
@@ -15,7 +16,8 @@
         "password": "adsada",
         "telefono": "213 213 2154",
         "eta": "65",
-        "email": "Sigma@gmail.com"
+        "email": "Sigma@gmail.com",
+        "prezzo": 35
     },
     {
         "nome": "Aldo moro",
@@ -25,6 +27,6 @@
         "telefono": "2132132154",
         "eta": "78",
         "email": "luca@luca.com",
-        "€/km": "45"
+        "prezzo": null
     }
 ]
