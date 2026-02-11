@@ -4,6 +4,7 @@ import os
 
 main_bp = Blueprint("main", __name__)
 
+
 @main_bp.route("/")
 def homepage():
     return render_template("index.html")
@@ -28,3 +29,27 @@ def show_schools():
     with open(json_path, 'r', encoding='utf-8') as f:
         schools = json.load(f)
     return render_template('school.html', schools=schools)
+
+
+@main_bp.route('/registrations')
+def registrations():
+    """Legge i file JSON in app/json e mostra tabelle con i dati registrati.
+
+    Restituisce: render_template('registrations.html', drivers=..., passengers=..., schools=...)
+    """
+    # percorso alla cartella app/json
+    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'json')
+
+    def load_json(fname):
+        path = os.path.join(data_dir, fname)
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
+            return []
+
+    drivers = load_json('driver.json')
+    passengers = load_json('passenger.json')
+    schools = load_json('school.json')
+
+    return render_template('registrations.html', drivers=drivers, passengers=passengers, schools=schools)

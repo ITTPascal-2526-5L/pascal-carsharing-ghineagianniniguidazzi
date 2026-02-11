@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dati registrati</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+      body { font-family: Arial, sans-serif; padding:18px; }
+      h1{ margin-bottom:12px }
+      table{ border-collapse:collapse; width:100%; margin-bottom:24px }
+      th, td{ border:1px solid #ddd; padding:8px; text-align:left }
+      th{ background:#f4f4f4 }
+      .section { margin-bottom:32px }
+      .back { display:inline-block; margin-bottom:12px; padding:8px 12px; background:#007bff; color:#fff; text-decoration:none; border-radius:6px }
+    </style>
+  </head>
+  <body>
+    <a class="back" href="{{ url_for('main.homepage') }}">← Torna alla home</a>
+    <h1>Dati registrati</h1>
+
+    <div class="section">
+      <h2>Autisti (driver.json)</h2>
+      {% if drivers %}
+        <table>
+          <thead>
+            <tr>
+              {% for key in drivers[0].keys() %}
+                <th>{{ key }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for d in drivers %}
+              <tr>
+                {% for val in d.values() %}
+                  <td>{{ val }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>Nessun autista registrato.</p>
+      {% endif %}
+    </div>
+
+    <div class="section">
+      <h2>Passeggeri (passenger.json)</h2>
+      {% if passengers %}
+        <table>
+          <thead>
+            <tr>
+              {% for key in passengers[0].keys() %}
+                <th>{{ key }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for p in passengers %}
+              <tr>
+                {% for val in p.values() %}
+                  <td>{{ val }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>Nessun passeggero registrato.</p>
+      {% endif %}
+    </div>
+
+    <div class="section">
+      <h2>Scuole (school.json)</h2>
+      {% if schools %}
+        <table>
+          <thead>
+            <tr>
+              {% for key in schools[0].keys() %}
+                <th>{{ key }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for s in schools %}
+              <tr>
+                {% for val in s.values() %}
+                  <td>{{ val }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>Nessuna scuola registrata.</p>
+      {% endif %}
+    </div>
+
+  </body>
+</html>
